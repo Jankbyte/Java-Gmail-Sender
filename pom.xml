@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>ru.kazbo.javamail</groupId>
+	<artifactId>JavaMail-example</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+    			<artifactId>junit-jupiter-engine</artifactId>
+    			<version>5.8.2</version>
+    			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>jakarta.mail</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<main.class.name>ru.kazbo.javamail.Main</main.class.name>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifest>
+							<mainClass>${main.class.name}</mainClass>
+						</manifest>
+						<manifestEntries>
+							<Built-By>Kazbo</Built-By>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<compilerArgs>
+						<arg>-Xlint:all</arg>
+					</compilerArgs>
+					<verbose>true</verbose>
+					<fork>true</fork>
+					<release>17</release>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
